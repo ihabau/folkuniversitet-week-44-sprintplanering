@@ -6,50 +6,34 @@ Fyll i README:n enligt uppgiften i `uppgift.md`.
 
 ## Scrum-roller
 
-- **Product Owner:**
-- **Scrum Master:**
-- **Utvecklare:**
+- **Product Owner:** Filip Lind (även Utvecklare)
+- **Scrum Master:** Sara Viberg (även Utvecklare)
+- **Utvecklare:** Erik Strand, Mia Nordin
 
-## Sprintmål
+## Sprintmål & Agil motivering
 
-Beskriv vad en användare kan se och göra i CheckoutLite när sprinten är klar.
+När sprinten är klar ska CheckoutLite presentera en fungerande kassaöversikt i gränssnittet där kunden ser butiksnamn och valuta, automatisk beräkning av totalsumma med moms, tydlig fraktstatus samt validering av rabattkod.
 
-### Agil motivering
+Genom att dela upp kassafunktionerna i korta iterationer kan vi testa orderflödet tidigt i gränssnittet. Om skatteberäkningar eller valideringsregler behöver justeras upptäcker vi det under sprintens gång i stället för dagen före lansering.
 
-Förklara hur korta feedbackcykler skyddar mot dyra fel.
+## Produktbacklog (4 User Stories)
 
-## Produktbacklog
+### US-1: Visa butiksinformation
+- **User Story:** Som en kund vill jag se butikens namn och valuta i sidhuvudet för att känna trygghet i vilken marknad jag handlar på.
+- **Acceptanskriterier:** Funktionen `visaButikInfo()` returnerar `"Nordic Gear (SEK)"` så att elementet `#header-info` visar butik och valuta.
+- **Ansvarig:** Filip Lind
 
-### US-1: Butiksidentitet
+### US-2: Beräkna totalbelopp och moms
+- **User Story:** Som en kund vill jag få ordersumman och 25 % moms kalkylerad automatiskt för att veta exakt vad mitt köp kostar.
+- **Acceptanskriterier:** `raknaTotal(varusumma)` adderar 25 % moms och returnerar totalbeloppet som numeriskt värde.
+- **Ansvarig:** Sara Viberg
 
-- **User Story:**
-- **Acceptanskriterier:**
-- **Ansvarig:**
+### US-3: Avgöra fraktvillkor
+- **User Story:** Som en kund vill jag se om min beställning kvalificerar sig för fri frakt för att kunna avgöra om jag ska lägga till fler varor.
+- **Acceptanskriterier:** `statusFrakt(total)` returnerar `"Fri frakt"` om totalen är > 500, annars `"Frakt tillkommer (49 kr)"`.
+- **Ansvarig:** Erik Strand
 
-### US-2: Totalberäkning
-
-- **User Story:**
-- **Acceptanskriterier:**
-- **Ansvarig:**
-
-### US-3: Fraktgräns
-
-- **User Story:**
-- **Acceptanskriterier:**
-- **Ansvarig:**
-
-### US-4: Kuponghantering
-
-- **User Story:**
-- **Acceptanskriterier:**
-- **Ansvarig:**
-
-## Daily Standup & Kravändring
-
-### Standup-notering
-
-### Sprint-anpassning
-
-- **Vad:**
-- **Vem:**
-- **Varför sprintmålet håller:**
+### US-4: Validera rabattkod
+- **User Story:** Som en kund vill jag kunna skriva in en rabattkod så att systemet kontrollerar att den uppfyller formatkravet.
+- **Acceptanskriterier:** `valideraKupong(kod)` returnerar `true` om koden är minst 4 tecken lång, annars `false`.
+- **Ansvarig:** Mia Nordin
